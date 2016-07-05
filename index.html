@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<!--
+    Tiana Pehle
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JSJQ Assignment 3 - MPG</title>
+    <style>
+      body, input {
+          font-family: arial, sans-serif;
+          font-size: 100%;
+      }
+ 
+      h3 {
+          margin-bottom: 25px;
+      }
+ 
+      label {
+          clear: left;       
+          display: block;
+          width: 150px;
+          height: 22px;       /* added to match default border on text box */ 
+          margin-bottom: 10px;
+          margin-right: 10px;        
+          padding: 10px; 
+          text-align: right;
+          float: left;
+      }
+ 
+      input[type=text] {
+          display: block;
+          float: left; 
+          width: 100px;
+          height: 20px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          padding: 10px;
+      }
+ 
+      input:not([type=text]) {
+          display: block;
+          margin-top: 25px;
+          padding: 10px;
+      }
+  
+      span {
+          color: red;
+          display: block;
+          float: left;
+      }
+ 
+      .clear{
+          clear: left;
+      }
+    </style>
+    
+    <script>
+             function clear() {
+            document.getElementById('mpg').firstChild.nodeValue = "";            document.getElementById('cost').firstChild.nodeValue = "";
+            
+           var miles_driven = document.getElementById('miles');
+           var gallons_used = document.getElementById('gallons');           
+           var price_gallon = document.getElementById('price');
+           
+           miles_driven.value = "";
+           gallons_used.value = "";
+           price_gallon.value = "";
+                 
+            
+        }
+        
+        
+        
+        
+        function calculate() {
+            //alert('calc');
+           
+           var miles_driven = document.getElementById('miles');
+           var gallons_used = document.getElementById('gallons');
+           var price_gallon = document.getElementById('price');
+           
+           var MilesDrivenError = document.getElementById('miles_driven_error');
+           var GallonsUsedError = document.getElementById('gallons_used_error');
+           var PriceGallonError = document.getElementById('price_gallon_error');
+           
+           // clear out error messages
+           MilesDrivenError.firstChild.nodeValue = " ";
+           GallonsUsedError.firstChild.nodeValue = " ";
+           PriceGallonError.firstChild.nodeValue = " ";
+           
+           // t/f test
+
+           var isValid = true;
+           
+           
+           if (miles_driven.value <=0  || isNaN(miles_driven.value) ) {
+             //alert('problem with height');
+             MilesDrivenError.firstChild.nodeValue = "Please enter a number greater than 0";
+             //return false;
+             isValid = false;
+           }
+            
+            if (gallons_used.value <=0  || isNaN(gallons_used.value) ) {
+             //alert('problem with height');
+             GallonsUsedError.firstChild.nodeValue = "Please enter a number greater than 0";
+             //return false;
+             isValid = false;
+           }
+            
+            if (price_gallon.value <=0  || isNaN(price_gallon.value) ) {
+             //alert('problem with height');
+             PriceGallonError.firstChild.nodeValue = "Please enter a number greater than 0";
+             //return false;
+             isValid = false;
+           }
+           
+           
+            var Miles_per_gallon = miles_driven.value * gallons_used.value;
+                       
+           if (isValid) {
+            document.getElementById('mpg').firstChild.nodeValue = "The cost of miles per gallon is "  + Miles_per_gallon;
+           }      
+                        
+            var Cost_of_the_trip = Miles_per_gallon * price_gallon.value;
+           
+           if (isValid) {
+            document.getElementById('cost').firstChild.nodeValue = "The cost is "  + Cost_of_the_trip;
+           }
+           
+           
+        
+        
+           
+        } // end function
+        
+        
+        window.onload = function(){
+            
+            document.getElementById('btnCalc').onclick = calculate;
+            document.getElementById('btnClear').onclick = clear;
+            
+        }
+            
+         
+         //**********************************************************
+         // Step 1: define a function that will be used to
+         //         work with the values that are entered,
+         //         validate the values, calculate the results,
+         //         and display the results
+         //
+         // NOTE: you may enter all of the code in one function
+         //       or you may split the code into as many functions
+         //       as you want.
+         //**********************************************************
+
+
+         
+         //**********************************************************
+         // Step 2: retrieve the values from the input type=text
+         //         form elements, assign values to variables
+         //**********************************************************
+
+
+         
+         //**********************************************************
+         // Step 3: check for valid miles driven
+         //         if (not a number OR miles driven < 0),
+         //         write an error message to the form 
+         //         using the miles_driven_error id
+         //**********************************************************
+
+
+         
+         //**********************************************************
+         // Step 4: check for valid gallons used
+         //         if (not a number OR gallons used < 0),
+         //         write an error message to the form 
+         //         using the gallons_used_error id
+         //**********************************************************
+
+
+         
+         //**********************************************************
+         // Step 5: check for valid price per gallons
+         //         if (not a number OR price per gallon < 0)
+         //         write an error message to the form 
+         //         using the price_gallons_error id
+         //**********************************************************
+
+
+         
+         //**********************************************************
+         // Step 6: perform calculations
+         //         if the three factors are valid, calculate
+         //         the miles per gallon and the cost of the trip
+         //**********************************************************
+
+
+         
+         //**********************************************************
+         // Step 7: write values to the page
+         //         write the results of the calculated values from
+         //         Step 6 to the page, using the mpg and cost id's.
+         //         Include text that identifies the value that
+         //         you are writing to the page.
+         //**********************************************************
+
+
+         
+         //**********************************************************
+         // Step 8: define a function to clear the page
+         //         This function will be invoked when the
+         //         "Clear Form" button is clicked.
+         //
+         //         Clear the values in the text boxes and the
+         //         mpg and cost id's that are used to display
+         //         the results.
+         //**********************************************************
+
+
+         
+         //**********************************************************
+         // Step 9: define an anonymous function for window.onload
+         //         This function should assign the event handler
+         //         functions for the Calculate and Clear buttons
+         //**********************************************************
+         
+         
+    </script>
+</head>
+
+<body> 
+    <h1>Calculate Your MPG</h1>
+    <h2>Enter the information below to see if you are getting good mileage!</h2>
+    
+    <form id="mpgform">
+        <label for="miles_driven">Miles Driven: </label>
+        <input type="text"  id="miles" name="miles_driven" >
+        <span class="error" id="miles_driven_error"> </span> 
+
+        <label for="gallons_used">Gallons of Gas Used: </label>
+        <input type="text"  id="gallons" name="gallons_used" >
+        <span class="error" id="gallons_used_error"> </span>  
+
+        <label for="price_gallon">Price per gallon: </label>
+        <input type="text"  id="price" name="price_gallon" >
+        <span class="error" id="price_gallon_error"> </span>   
+ 
+        <input type="button" id="btnCalc"  value="Calculate the MPG and Cost of the Trip" class="clear">
+      
+        <input type="button" id="btnClear" value="Clear Form"> 
+    </form>
+
+
+    <p id="mpg"> </p>
+
+    <p id="cost"> </p>
+    
+</body>
+</html>
